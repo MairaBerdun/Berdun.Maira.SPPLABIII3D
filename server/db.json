@@ -1,0 +1,37 @@
+{
+  "monstruos": [
+    {
+      "id": 1,
+      "Nombre": "Pelusa",
+      "Tipo": "Hombre Lobo",
+      "Alias": "pepito",
+      "Defensa": "Crucifijo",
+      "Miedo": "100"
+    },
+    {
+      "Nombre": "Sara",
+      "Tipo": "Fantasma",
+      "Alias": "rosita",
+      "Defensa": "Crucifijo",
+      "Miedo": "67",
+      "id": 2
+    },
+    {
+      "Nombre": "Marcos",
+      "Tipo": "Fantasma",
+      "Alias": "marqui",
+      "Defensa": "Plata",
+      "Miedo": "69",
+      "id": 3
+    }
+  ],
+  "tipoMonstruos": [
+    "Todos",
+    "Esqueleto",
+    "Zombie",
+    "Vampiro",
+    "Fantasma",
+    "Bruja",
+    "Hombre Lobo"
+  ]
+}

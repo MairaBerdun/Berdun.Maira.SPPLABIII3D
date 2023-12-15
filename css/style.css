@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  /*cursor: url('../assets/cursor.png'), auto;*/
+}
+
+body {
+  margin: 3.5rem 0 0 0;
+  margin-bottom: 70px;
+  font-family: 'serif', sans-serif;
+  font-size: 1rem;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+h4 {
+  background-color: gray;
+  padding: 3px;
+  color: white;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+form {
+  background-size: cover;
+  background-position: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+
+  max-width: 400px;
+  margin: auto;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+#loader {
+  height: 50px;
+  width: 50px;
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  margin-top: 30px;
+  margin-left: 455px;
+}
+
+#divSpinner {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.seccion-monstruos{
+  background-image: url('../assets/fondoTres.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.table-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+footer {
+  background-color: gray;
+  padding: 20px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.footer-left,
+.footer-right {
+  display: inline-block;
+}
+
+.footer-left a {
+  margin-right: 15px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.footer-right p {
+  margin: 0;
+  color: #fff;
+}

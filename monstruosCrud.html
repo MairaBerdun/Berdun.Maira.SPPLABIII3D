@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Halloween Town</title>
+
+  <link rel="icon" href="../assets/bruja.png" type="image/png">
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+
+<body>
+  <!-- #region navbar -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">
+        <img src="../assets/logo.png" width="30" height="30" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="monstruos.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="monstruosCrud.html">Monstruos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <!-- #endregion navbar -->
+
+  <!-- #region formulario -->
+  <section class="seccion-monstruos">
+    <h4 id="crudMonstruos">CRUD MONSTRUOS</h4>
+    <form id="monstruoForm" autocomplete="off" class="my-4">
+      <fieldset>
+        <legend class="text-white">Informacion del monstruo</legend>
+
+        <div class="form-group">
+          <i class="bi bi-person-circle"></i>
+          <label for="txtNombre">Nombre:</label>
+          <input type="text" id="txtNombre" name="nombre" class="form-control mb-2" placeholder="Ingrese nombre"
+            required>
+        </div>
+
+        <div class="form-group">
+          <i class="bi bi-person-badge"></i>
+          <label for="txtAlias">Alias:</label>
+          <input type="text" id="txtAlias" name="alias" class="form-control mb-2" placeholder="Ingrese alter-ego"
+            required>
+        </div>
+
+        <div class="form-group">
+          <i class="bi bi-radioactive"></i>
+          <label for="radioDefensa">Defensa:</label>
+          <div>
+            <div class="form-check form-check-inline">
+              <input type="radio" id="estaca" name="Defensa" value="Estaca" class="form-check-input">
+              <label for="estaca" class="form-check-label">Estaca</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+              <input type="radio" id="plata" name="Defensa" value="Plata" class="form-check-input">
+              <label for="plata" class="form-check-label">Plata</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+              <input type="radio" id="crucifijo" name="Defensa" value="Crucifijo" class="form-check-input">
+              <label for="crucifijo" class="form-check-label">Crucifijo</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+              <input type="radio" id="pocion" name="Defensa" value="Poción" class="form-check-input">
+              <label for="pocion" class="form-check-label">Poción</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <i class="bi bi-balloon-fill"></i>
+          <label for="rangeMiedo">Miedo:</label>
+          <input type="range" id="rangeMiedo" name="rango" class="form-control-range mb-2" min="0" max="100" step="1"
+            required>
+        </div>
+
+        <div class="form-group">
+          <i class="bi bi-emoji-smile-fill"></i>
+          <label for="tiposForm">Tipo:</label>
+          <select id="tiposForm" name="opcionesTipo" class="form-control mb-2" required></select>
+        </div>
+
+        <button type="submit" class="btn btn-success" id="btnAgregar">
+          <i class="bi bi-floppy"></i> Guardar
+        </button>
+        <button type="submit" class="btn btn-danger" id="BtnCancelar" hidden>
+          <i class="bi bi-x-square"></i> Cancelar
+        </button>
+      </fieldset>
+    </form>
+  </section>
+  <!-- #endregion formulario -->
+
+  <!--#region filtros-->
+  <section class="filtro">
+    <div class="container-fluid text-center col-md-7">
+      <h3 class="text-center">FILTROS</h3>
+      <div class="list-inline-item">
+        <label for="filtro" class="text-white"> Filtrar por:</label>
+        <select name="filtroTipos" id="filtroTipos" class="form-control form-select-sm">
+        </select>
+        <!--
+          <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              Filtrar por:
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" id="filtroTipos">
+               Aca se cargan los datos de manera dinámica
+            </ul>
+          </div>
+        -->
+
+
+        <label for="promedio">Promedio del Miedo:</label>
+        <input type="text" name="txtPromedio" id="promedio" class="form-control form-select-sm" placeholder="-"
+          disabled />
+        <br>
+        <label for="miedoMin">Miedo minimo:</label>
+        <input type="text" name="txtMiedoMin" id="miedoMin" class="form-control form-select-sm" placeholder="-"
+          disabled />
+        <label for="miedoMax">Miedo maximo:</label>
+        <input type="text" name="txtMiedoMin" id="miedoMax" class="form-control form-select-sm" placeholder="-"
+          disabled />
+        <br>
+      </div>
+      <div class="container-fluid text-center col-md-10">
+        <div class="row container-fluid">
+          <div class="col  bg-info bg-opacity-25 border mb-3 form-check">
+            <label class="form-check-label" for="cboNombre">Nombre</label>
+            <input class="form-check-input chbox" type="checkbox" id="cboNombre" value="Nombre" name="Nombre" data-column="Nombre">
+          </div>
+          <div class="col  bg-info bg-opacity-25 border mb-3 form-check">
+            <label class="form-check-label" for="cboAlias">Alias</label>
+            <input class="form-check-input chbox" type="checkbox" id="cboAlias" value="Alias" name="Alias" data-column="Alias">
+          </div>
+          <div class="col  bg-info bg-opacity-25 border mb-3 form-check">
+            <input class="form-check-input chbox" type="checkbox" id="cboDefensa" value="Defensa" name="Defensa" data-column="Defensa">
+            <label class="form-check-label" for="cboDefensa">Defensa</label>
+          </div>
+          <div class="col  bg-info bg-opacity-25 border mb-3 form-check">
+            <input class="form-check-input chbox" type="checkbox" id="cboMiedo" value="Miedo" name="Miedo" data-column="Miedo">
+            <label class="form-check-label" for="cboMiedo">Miedo</label>
+          </div>
+          <div class="col  bg-info bg-opacity-25 border mb-3 form-check">
+            <input class="form-check-input chbox" type="checkbox" id="cboTipo" value="Tipo" name="Tipo" data-column="Tipo">
+            <label class="form-check-label" for="cboTipo">Tipo</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+  <!--#endregion filtros-->
+
+  <!--#region spinner-->
+  <div class="spinner" id="divSpinner">
+    <img id="loader" src="./assets/loader.gif" alt="Loader de pagina">
+    <!--<label class="labelSpinner">Cargando datos...</label>-->
+  </div>
+  <!--#endregion spinner-->
+
+  <!--#region tabla-->
+  <section>
+    <div id="divTabla" class="table-container">
+      <fieldset class="fieldset-tabla">
+        <div id="table-container" class="table-container" hidden></div> <!--esta oculto al pp-->
+        <fieldset>
+          <div>
+            <button type="button" id="BtnEliminar" class="btn btn-danger BtnEliminar" name="AccionEliminarPublicacion"
+              value="Eliminar">Eliminar</button>
+          </div>
+        </fieldset>
+      </fieldset>
+    </div>
+    <div class="modal" id="modalEliminar" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Eliminacion de monstruo</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Esta por eliminar un monstruo del listado, ¿Quiere confirmar esta operación?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button id="BtnConfirmarEliminar" type="button" class="btn btn-primary">Eliminar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <!--#endregion tabla-->
+
+  <!-- #region Pie de pagina-->
+  <footer>
+    <div class="footer-left">
+      <a href="monstruos.html">Home</a>
+      <a href="monstruosCrud.html">Monstruos</a>
+      <a href="#blog">Blog</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <div class="footer-right">
+      <p>LABORATORIO III - TODOS LOS DERECHOS RESERVADOS 2023 &#169;</p>
+    </div>
+  </footer>
+  <!-- #endregion Pie de pagina-->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <script src="./scripts/app.js" type="module" defer></script>
+</body>
+
+</html>
