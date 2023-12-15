@@ -53,6 +53,12 @@ textarea {
   box-sizing: border-box;
 }
 
+.centrar-input {
+  text-align: center;
+  margin: 0 auto; 
+  display: block; 
+}
+
 #loader {
   height: 50px;
   width: 50px;

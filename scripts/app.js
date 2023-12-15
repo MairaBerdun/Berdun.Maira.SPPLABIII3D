@@ -1,10 +1,11 @@
 import Monstruo from "./monstruo.js";
 import {crearTabla, crearCabecera, crearCuerpo} from "./tablaMonstruos.js";
 
-import { getTiposMonstruosFetch, postMonstruoAjax, putMonstruoAjax, getMonstruosAjax, deleteMonstruosAxios, postMonstruosFetch, postMonstruosAxios, deleteMonstruoAjax, deleteMonstruosFetch, putMonstruosFetch } from "./db.js";
+import { getTiposMonstruosFetch, postMonstruoAjax, putMonstruoAjax, getMonstruosAjax, getMonstruosAxios,  deleteMonstruosAxios, postMonstruosFetch, postMonstruosAxios, deleteMonstruoAjax, deleteMonstruosFetch, putMonstruosFetch } from "./db.js";
 
 //Carga los monstruos del servidor
 const monstruos = await getMonstruosAjax();
+//const monstruos = await getMonstruosAxios();
 
 //Carga del servidor los diferentes tipos de monstruos para el select del form
 const tipos = await getTiposMonstruosFetch();
@@ -37,23 +38,6 @@ tipos.forEach((tipo) => {
   opcionElement.text = tipo;
   miSelectFiltro.add(opcionElement);
 });
-
-/*
-//LO NUEVO PARA HACER DINAMICO LO DEL SELECT
-const miSelectFiltro = document.getElementById('filtroTipos');//me quedo con la referencia de boostrap
-tipos.forEach((tipo) => { //genero de manera dinamica cada uno de los items del dropdown
-    const opcionElement = document.createElement('li');
-    opcionElement.innerHTML = `<a class="dropdown-item" href="#">${tipo}</a>`;
-
-    opcionElement.addEventListener('click', (event) => {
-        let filtroSeleccionado = event.target.textContent;
-        console.log('Tipo seleccionado:', filtroSeleccionado);
-    });
-
-    miSelectFiltro.appendChild(opcionElement);
-
-});*/
-
 
 //Almaceno la ref al elemento del DOM con el id "table-container"
 const $containerTabla = document.getElementById("table-container");
